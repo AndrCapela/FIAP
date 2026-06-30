@@ -10,9 +10,13 @@ textos = [
       "Eleições presidenciais",
       "Atualização no mundo da tecnologia",
       "Campeonato de futebol",
-      "Política internacional"
+      "Política internacional",
+      "Os Estados Unidos declarou guerra ao Irã",
+      "O Brasil tem um novo presidente",
+      "A Xiaomi é uma das maiores fabricantes de celulares do mundo",
+      "O campeonato de basquete está emocionante"
 ]
-categorias = ["tecnologia", "esportes", "política", "tecnologia", "esportes", "política"]
+categorias = ["tecnologia", "esportes", "política", "tecnologia", "esportes", "política", "política", "política", "tecnologia", "esportes"]
   
 # Convertendo textos em uma matriz de contagens de tokens
 vectorizer = CountVectorizer()
@@ -27,11 +31,10 @@ clf.fit(X_train, y_train)
   
 # Predição e Avaliação
 y_pred = clf.predict(X_test)
-print(y_pred)
 print(f"Acurácia: {accuracy_score(y_test, y_pred)}")
 
 # Classificando um novo texto
-novo_texto = ["O Brasil ganhou do Japão por 2 a 1 na copa do mundo de futebol"]
+novo_texto = ["A Ucrânia está em guerra com a Rússia"]
 novo_texto_vetorizado = vectorizer.transform(novo_texto)
 predicao = clf.predict(novo_texto_vetorizado)
 print(f"O texto '{novo_texto[0]}' pertence à categoria: {predicao[0]}")
